@@ -1,0 +1,26 @@
+{
+  "name": "node-ninjas-toolbox",
+  "version": "1.0.0",
+  "description": "Base project for builing containerised CLI tools using node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indieisaconcept/node-toolbox.git"
+  },
+  "keywords": [
+    "docker",
+    "node"
+  ],
+  "author": "Jonathan Barnett <me@indieisaconcept.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indieisaconcept/node-toolbox/issues"
+  },
+  "homepage": "https://github.com/indieisaconcept/node-toolbox#readme",
+  "devDependencies": {
+    "mocha": "2.0.0"
+  }
+}

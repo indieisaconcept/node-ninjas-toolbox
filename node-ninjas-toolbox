@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# akamai-ets
+# A wrapper script for invoking node-ninjas-toolbox with docker
+# Put this script in $PATH as `node-ninjas-toolbox`
+
+PROGNAME="$(basename $0)"
+VERSION="v1.0.0"
+
+# Helper functions for guards
+
+error(){
+    error_code=$1
+    echo "ERROR: $2" >&2
+    echo "($PROGNAME wrapper version: $VERSION, error code: $error_code )" >&2
+    exit $1
+}
+
+check_cmd_in_path(){
+    cmd=$1
+    which $cmd > /dev/null 2>&1 || error 1 "$cmd not found!"
+}
+
+# get_free_port(){
+#
+#     # https://github.com/docker/docker/issues/3778#issuecomment-211831177
+#
+# echo $(python << END
+# import socket;
+# s = socket.socket();
+# s.bind(('', 0));
+# print s.getsockname()[1];
+# s.close()
+# END)
+#
+# }
+
+# Guards (checks for dependencies)
+
+check_cmd_in_path docker
+check_cmd_in_path docker-machine
+
+NNT_CWD=${NNT_CWD:=$PWD}
+
+# Set up mounted volumes, environment, and run our
+# containerized command
+
+docker run \
+  --interactive --tty --rm \
+  --volume "$NNT_CWD":"/home" \
+  -p 3000:3000 \
+  "indieisaconcept/node-ninjas-toolbox:$VERSION" "$@"
