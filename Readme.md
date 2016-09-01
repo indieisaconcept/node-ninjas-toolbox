@@ -18,3 +18,5 @@ instructions below.
 
 The above will clone `node-ninjas-toolbox` locally, build an `node-ninjas-toolbox` image and add
 the `node-ninjas-toolbox` executable to your path for easy access
+
+Inspired by [https://spin.atomicobject.com/2015/11/30/command-line-tools-docker/](https://spin.atomicobject.com/2015/11/30/command-line-tools-docker/)
