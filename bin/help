@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+'use strict';
+
+require('colors');
+
+let help = `
+${"node ninjas toolbox".rainbow}
+
+usage
+
+nsp              : run nsp security tool
+npm-check        : look for outdated dependencies
+node-versions    : list node versions
+create-react-app : react scaffolding tool
+`;
+
+console.log(help);
